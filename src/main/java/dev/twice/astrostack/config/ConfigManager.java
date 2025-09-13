@@ -52,7 +52,9 @@ public class ConfigManager {
         try {
             Material material = Material.valueOf(materialName);
             enabledMaterials.add(material);
-        } catch (IllegalArgumentException ignored) {}
+        } catch (IllegalArgumentException e) {
+            plugin.getLogger().warning("Invalid material in config: " + materialName);
+        }
     }
 
     private void setDefaultMaterials() {
