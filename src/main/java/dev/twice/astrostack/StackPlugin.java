@@ -6,28 +6,23 @@ import dev.twice.astrostack.service.StackService;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
+@Getter
 public class StackPlugin extends JavaPlugin {
 
-    @Getter
     private ConfigManager configManager;
 
-    @Getter
     private StackService stackService;
-
-    private InventoryListener inventoryListener;
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+
         this.configManager = new ConfigManager(this);
         this.stackService = new StackService(configManager);
-        this.inventoryListener = new InventoryListener(stackService);
+        InventoryListener inventoryListener = new InventoryListener(stackService);
 
         getServer().getPluginManager().registerEvents(inventoryListener, this);
-        getServer().getScheduler().runTask(this, stackService::processAllOnlinePlayersInventories);
-    }
-
-    public void reload() {
-        configManager.reload();
-        stackService.updateConfiguration();
+        getServer().getScheduler().runTaskLater(this,
+                stackService::processAllOnlinePlayersInventories, 20L);
     }
 }

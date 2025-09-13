@@ -17,20 +17,20 @@ public class InventoryListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onPlayerJoin(PlayerJoinEvent event) {
-        stackService.processPlayerInventory(event.getPlayer());
+        stackService.processInventory(event.getPlayer().getInventory());
     }
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onInventoryClick(InventoryClickEvent event) {
         if (event.getWhoClicked() instanceof Player player) {
-            stackService.processPlayerInventory(player);
+            stackService.processInventory(player.getInventory());
         }
     }
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onInventoryDrag(InventoryDragEvent event) {
         if (event.getWhoClicked() instanceof Player player) {
-            stackService.processPlayerInventory(player);
+            stackService.processInventory(player.getInventory());
         }
     }
 }

@@ -25,16 +25,10 @@ public class ConfigManager {
         loadConfiguration();
     }
 
-    public void reload() {
-        plugin.reloadConfig();
-        loadConfiguration();
-    }
-
     private void loadConfiguration() {
-        plugin.saveDefaultConfig();
         FileConfiguration config = plugin.getConfig();
 
-        int configuredSize = config.getInt("max-stack-size", 64);
+        int configuredSize = config.getInt("max-stack-size");
         this.maxStackSize = Math.max(1, Math.min(configuredSize, 64));
 
         loadEnabledMaterials(config);
