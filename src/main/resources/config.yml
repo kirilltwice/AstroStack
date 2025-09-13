@@ -1,0 +1,6 @@
+max-stack-size: 64
+
+enabled-materials:
+  - POTION
+  - SPLASH_POTION
+  - LINGERING_POTION

@@ -1,0 +1,5 @@
+name: AstroStack
+main: dev.twice.astrostack.StackPlugin
+
+version: '1.0-SNAPSHOT'
+api-version: '1.21'
