@@ -19,10 +19,6 @@ public class StackService {
         }
     }
 
-    public void processPlayerInventory(Player player) {
-        processInventory(player.getInventory());
-    }
-
     public void processInventory(Inventory inventory) {
         ItemStack[] contents = inventory.getContents();
 
