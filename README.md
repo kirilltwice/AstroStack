@@ -3,7 +3,6 @@
 ![Minecraft](https://img.shields.io/badge/Minecraft-1.21+-green?style=flat&logo=minecraft)
 ![Java](https://img.shields.io/badge/Java-21+-orange?style=flat&logo=openjdk)
 ![Paper](https://img.shields.io/badge/Paper-API-blue?style=flat)
-![LiteCommands](https://img.shields.io/badge/LiteCommands-blue?style=flat)
 ![Lombok](https://img.shields.io/badge/Lombok-red?style=flat)
 
 AstroStack — это плагин для серверов Minecraft Paper, который позволяет увеличивать максимальный размер стака для определенных предметов сверх стандартных ограничений Minecraft.
