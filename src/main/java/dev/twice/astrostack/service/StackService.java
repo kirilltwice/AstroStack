@@ -22,9 +22,11 @@ public class StackService {
     public void processInventory(Inventory inventory) {
         ItemStack[] contents = inventory.getContents();
 
-        for (ItemStack item : contents) {
+        for (int i = 0; i < contents.length; i++) {
+            ItemStack item = contents[i];
             if (shouldProcessItem(item)) {
-                updateItemStackSize(item);
+                ItemStack updatedItem = updateItemStackSize(item);
+                inventory.setItem(i, updatedItem);
             }
         }
     }
@@ -34,7 +36,10 @@ public class StackService {
                 !item.getType().isAir() &&
                 configManager.getEnabledMaterials().contains(item.getType());
     }
-    public void updateItemStackSize(ItemStack item) {
-        item.setData(DataComponentTypes.MAX_STACK_SIZE, configManager.getMaxStackSize());
+
+    public ItemStack updateItemStackSize(ItemStack item) {
+        ItemStack newItem = item.clone();
+        newItem.setData(DataComponentTypes.MAX_STACK_SIZE, configManager.getMaxStackSize());
+        return newItem;
     }
 }
